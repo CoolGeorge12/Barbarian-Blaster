@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://07b0w8wg0t3d"]
 
 [ext_resource type="MeshLibrary" uid="uid://dv2otq5whsnym" path="res://MeshLibraries/SpaceLibrary.tres" id="1_lvb7b"]
+[ext_resource type="PackedScene" uid="uid://fvik1km2f5l8" path="res://Enemy/enemy.tscn" id="2_5x8ra"]
+[ext_resource type="PackedScene" uid="uid://dmp15xq1xg24g" path="res://Base/base.tscn" id="3_o2j4u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dq0bh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -42,20 +44,12 @@ material = SubResource("StandardMaterial3D_lvb7b")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1800399935]
 transform = Transform3D(1, 0, 0, 0, 0.42261824, 0.9063078, 0, -0.9063078, 0.42261824, 0, 14.5, 9.5)
 
-[node name="GridMap" type="GridMap" parent="." unique_id=1876542809]
+[node name="GridMap" type="GridMap" parent="." unique_id=1771084323]
 mesh_library = ExtResource("1_lvb7b")
 cell_size = Vector3(4, 4, 4)
 cell_center_y = false
 data = {
-"cells": PackedInt32Array(65535, 65534, 0, 65535, 2, 0, 65531, 65535, 0, 4, 65535, 0, 65531, 65534, 0, 65531, 0, 0, 65531, 2, 0, 65532, 65534, 0, 65532, 2, 0, 65533, 2, 0, 65534, 65534, 0, 65534, 2, 0, 0, 65534, 0, 0, 2, 0, 1, 65534, 0, 1, 2, 0, 2, 65534, 0, 2, 2, 0, 3, 65534, 0, 4, 65534, 0, 4, 0, 0, 4, 1, 0, 4, 2, 0, 65532, 65535, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 2, 0)
-}
-
-[node name="GridMap2" type="GridMap" parent="." unique_id=1771084323]
-mesh_library = ExtResource("1_lvb7b")
-cell_size = Vector3(4, 4, 4)
-cell_center_y = false
-data = {
-"cells": PackedInt32Array(65535, 65534, 0, 65535, 2, 0, 65531, 65535, 0, 4, 65535, 0, 65531, 65534, 0, 65531, 0, 0, 65531, 2, 0, 65532, 65534, 0, 65532, 2, 0, 65533, 2, 0, 65534, 65534, 0, 65534, 2, 0, 0, 65534, 0, 0, 2, 0, 1, 65534, 0, 1, 2, 0, 2, 65534, 0, 2, 2, 0, 3, 65534, 0, 4, 65534, 0, 4, 0, 0, 4, 1, 0, 4, 2, 0, 65532, 65535, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 2, 0)
+"cells": PackedInt32Array(65535, 65534, 0, 65535, 2, 0, 65531, 65535, 0, 4, 65535, 0, 65531, 65534, 0, 65531, 0, 0, 65531, 2, 0, 65532, 65534, 0, 65532, 2, 0, 65533, 2, 0, 65534, 65534, 0, 65534, 2, 0, 0, 65534, 0, 0, 2, 0, 1, 65534, 0, 1, 2, 0, 2, 65534, 0, 2, 2, 0, 3, 65534, 0, 4, 65534, 0, 4, 0, 0, 4, 1, 0, 4, 2, 0, 65532, 65535, 0, 3, 2, 0, 1, 0, 0, 0, 0, 0, 65535, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 2, 0, 0)
 }
 
 [node name="Path3D" type="Path3D" parent="." unique_id=1202597027]
@@ -102,3 +96,9 @@ path_local = false
 path_continuous_u = true
 path_u_distance = 1.0
 path_joined = false
+
+[node name="Enemy" parent="Path3D" unique_id=1869172133 instance=ExtResource("2_5x8ra")]
+transform = Transform3D(-0.028559463, 0, -0.99958104, 0, 1, 0, 0.99958104, 0, -0.028559463, -22, 0, 6)
+
+[node name="Base" parent="." unique_id=1860739295 instance=ExtResource("3_o2j4u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -6)
