@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://07b0w8wg0t3d"]
 
+[ext_resource type="PackedScene" uid="uid://cgrhgkssnspag" path="res://RayPickerCamera/ray_picker_camera.tscn" id="1_knq2t"]
 [ext_resource type="MeshLibrary" uid="uid://dv2otq5whsnym" path="res://MeshLibraries/SpaceLibrary.tres" id="1_lvb7b"]
 [ext_resource type="PackedScene" uid="uid://fvik1km2f5l8" path="res://Enemy/enemy.tscn" id="2_5x8ra"]
 [ext_resource type="PackedScene" uid="uid://dmp15xq1xg24g" path="res://Base/base.tscn" id="3_o2j4u"]
@@ -41,8 +42,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 size = Vector3(100, 2, 100)
 material = SubResource("StandardMaterial3D_lvb7b")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1800399935]
-transform = Transform3D(1, 0, 0, 0, 0.42261824, 0.9063078, 0, -0.9063078, 0.42261824, 0, 14.5, 9.5)
+[node name="RayPickerCamera" parent="." unique_id=1495407196 node_paths=PackedStringArray("gridmap") instance=ExtResource("1_knq2t")]
+gridmap = NodePath("../GridMap")
 
 [node name="GridMap" type="GridMap" parent="." unique_id=1771084323]
 mesh_library = ExtResource("1_lvb7b")
@@ -98,7 +99,23 @@ path_u_distance = 1.0
 path_joined = false
 
 [node name="Enemy" parent="Path3D" unique_id=1869172133 instance=ExtResource("2_5x8ra")]
-transform = Transform3D(-0.028559463, 0, -0.99958104, 0, 1, 0, 0.99958104, 0, -0.028559463, -22, 0, 6)
+transform = Transform3D(-0.028559439, 0, -0.9995802, 0, 1, 0, 0.9995802, 0, -0.028559439, -22, 0, 6)
+
+[node name="Enemy2" parent="Path3D" unique_id=238428744 instance=ExtResource("2_5x8ra")]
+transform = Transform3D(-0.024007645, 0, -0.99970037, 0, 1, 0, 0.99970037, 0, -0.024007645, -17.001804, 0, 6.1290264)
+progress = 5.0
+
+[node name="Enemy3" parent="Path3D" unique_id=1297831064 instance=ExtResource("2_5x8ra")]
+transform = Transform3D(-0.020648846, 0, -0.99977535, 0, 1, 0, 0.99977535, 0, -0.020648846, -12.00296, 0, 6.240797)
+progress = 10.0
+
+[node name="Enemy4" parent="Path3D" unique_id=396276055 instance=ExtResource("2_5x8ra")]
+transform = Transform3D(-0.016666327, 0, -0.9998496, 0, 1, 0, 0.9998496, 0, -0.016666327, -7.0038123, 0, 6.3344803)
+progress = 15.0
+
+[node name="Enemy5" parent="Path3D" unique_id=1510596401 instance=ExtResource("2_5x8ra")]
+transform = Transform3D(-0.01129523, 0, -0.99992466, 0, 1, 0, 0.99992466, 0, -0.01129523, -2.004308, 0, 6.4051886)
+progress = 20.0
 
 [node name="Base" parent="." unique_id=1860739295 instance=ExtResource("3_o2j4u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -6)
