@@ -4,6 +4,8 @@
 [ext_resource type="MeshLibrary" uid="uid://dv2otq5whsnym" path="res://MeshLibraries/SpaceLibrary.tres" id="1_lvb7b"]
 [ext_resource type="PackedScene" uid="uid://fvik1km2f5l8" path="res://Enemy/enemy.tscn" id="2_5x8ra"]
 [ext_resource type="PackedScene" uid="uid://dmp15xq1xg24g" path="res://Base/base.tscn" id="3_o2j4u"]
+[ext_resource type="Script" uid="uid://bsjogxvyjj8tp" path="res://turret_manager.gd" id="5_cwwxe"]
+[ext_resource type="PackedScene" uid="uid://dbspp2x4poqh7" path="res://Turret/turret.tscn" id="6_ufkdr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dq0bh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -42,8 +44,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 size = Vector3(100, 2, 100)
 material = SubResource("StandardMaterial3D_lvb7b")
 
-[node name="RayPickerCamera" parent="." unique_id=1495407196 node_paths=PackedStringArray("gridmap") instance=ExtResource("1_knq2t")]
+[node name="RayPickerCamera" parent="." unique_id=1495407196 node_paths=PackedStringArray("gridmap", "turret_manager") instance=ExtResource("1_knq2t")]
 gridmap = NodePath("../GridMap")
+turret_manager = NodePath("../TurretManager")
 
 [node name="GridMap" type="GridMap" parent="." unique_id=1771084323]
 mesh_library = ExtResource("1_lvb7b")
@@ -99,7 +102,7 @@ path_u_distance = 1.0
 path_joined = false
 
 [node name="Enemy" parent="Path3D" unique_id=1869172133 instance=ExtResource("2_5x8ra")]
-transform = Transform3D(-0.028559433, 0, -0.99958, 0, 1, 0, 0.99958, 0, -0.028559433, -22, 0, 6)
+transform = Transform3D(-0.028559428, 0, -0.9995798, 0, 1, 0, 0.9995798, 0, -0.028559428, -22, 0, 6)
 
 [node name="Enemy2" parent="Path3D" unique_id=238428744 instance=ExtResource("2_5x8ra")]
 transform = Transform3D(-0.024007645, 0, -0.99970037, 0, 1, 0, 0.99970037, 0, -0.024007645, -17.001804, 0, 6.1290264)
@@ -119,3 +122,8 @@ progress = 20.0
 
 [node name="Base" parent="." unique_id=1860739295 instance=ExtResource("3_o2j4u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -6)
+
+[node name="TurretManager" type="Node3D" parent="." unique_id=1873864444 node_paths=PackedStringArray("enemy_path")]
+script = ExtResource("5_cwwxe")
+turret = ExtResource("6_ufkdr")
+enemy_path = NodePath("../Path3D")
