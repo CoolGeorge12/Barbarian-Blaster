@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://beattf28s6fxs"]
 
+[ext_resource type="PackedScene" uid="uid://d1uht2ck6mb" path="res://Assets/Tree.glb" id="1_05dan"]
+[ext_resource type="PackedScene" uid="uid://cav5ciccqc06i" path="res://Assets/Rocks.glb" id="2_pou1f"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2a4ik"]
-albedo_color = Color(0.8039216, 0.8039216, 0.8039216, 1)
+blend_mode = 1
+albedo_color = Color(0.24705882, 0.24705882, 0.24705882, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_e2761"]
 material = SubResource("StandardMaterial3D_2a4ik")
@@ -11,7 +15,8 @@ size = Vector3(4, 0.1, 4)
 data = PackedVector3Array(-2, 0.049999997, 2, 2, 0.049999997, 2, -2, -0.049999997, 2, 2, 0.049999997, 2, 2, -0.049999997, 2, -2, -0.049999997, 2, 2, 0.049999997, -2, -2, 0.049999997, -2, 2, -0.049999997, -2, -2, 0.049999997, -2, -2, -0.049999997, -2, 2, -0.049999997, -2, 2, 0.049999997, 2, 2, 0.049999997, -2, 2, -0.049999997, 2, 2, 0.049999997, -2, 2, -0.049999997, -2, 2, -0.049999997, 2, -2, 0.049999997, -2, -2, 0.049999997, 2, -2, -0.049999997, -2, -2, 0.049999997, 2, -2, -0.049999997, 2, -2, -0.049999997, -2, 2, 0.049999997, 2, -2, 0.049999997, 2, 2, 0.049999997, -2, -2, 0.049999997, 2, -2, 0.049999997, -2, 2, 0.049999997, -2, -2, -0.049999997, 2, 2, -0.049999997, 2, -2, -0.049999997, -2, 2, -0.049999997, 2, 2, -0.049999997, -2, -2, -0.049999997, -2)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xrbug"]
-albedo_color = Color(0.8392157, 0.22745098, 0.16078432, 1)
+transparency = 1
+albedo_color = Color(0.8392157, 0.22745098, 0.16078432, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2a4ik"]
 material = SubResource("StandardMaterial3D_xrbug")
@@ -37,3 +42,7 @@ mesh = SubResource("BoxMesh_2a4ik")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TurretBase/StaticBody3D" unique_id=606830834]
 shape = SubResource("ConcavePolygonShape3D_3dfir")
+
+[node name="Tree" parent="." unique_id=1694710979 instance=ExtResource("1_05dan")]
+
+[node name="Rocks" parent="." unique_id=463697833 instance=ExtResource("2_pou1f")]
